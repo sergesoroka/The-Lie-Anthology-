@@ -1,0 +1,64 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 100%;
+  font-weight: 600;
+  background-color: rgb(255, 255, 255);
+  z-index: 1;
+}
+.burger {
+  margin: 1.5rem;
+  cursor: pointer;
+  height: 19px;
+}
+.top,
+.middle,
+.bottom {
+  height: 3px;
+  width: 28px;
+  background-color: black;
+  margin-bottom: 5px;
+  -webkit-transition: all 0.25s cubic-bezier(0.46, 0.03, 0.52, 0.96),
+    background 0.2s ease-in-out;
+  transition: all 0.25s cubic-bezier(0.46, 0.03, 0.52, 0.96),
+    background 0.2s ease-in-out;
+    z-index: 1000;
+}
+
+.bottomActive {
+  height: 3px;
+  width: 28px;
+  background-color: black;
+  margin-bottom: 5px;
+  transform: translateY(1px) rotate(45deg);
+  -webkit-transition: all 0.25s cubic-bezier(0.46, 0.03, 0.52, 0.96),
+    background 0.3s ease-in-out;
+  transition: all 0.25s cubic-bezier(0.46, 0.03, 0.52, 0.96),
+    background 0.3s ease-in-out;
+}
+
+.middleActive {
+  height: 3px;
+  width: 28px;
+  background-color: black;
+  margin-bottom: 5px;
+  display: none;
+  -webkit-transition: all 0.25s cubic-bezier(0.46, 0.03, 0.52, 0.96),
+    background 0.3s ease-in-out;
+  transition: all 0.25s cubic-bezier(0.46, 0.03, 0.52, 0.96),
+    background 0.3s ease-in-out;
+}
+
+.topActive {
+  height: 3px;
+  width: 28px;
+  background-color: black;
+  margin-bottom: 5px;
+  transform: translateY(9px) rotate(-45deg);
+  -webkit-transition: all 0.25s cubic-bezier(0.46, 0.03, 0.52, 0.96),
+    background 0.3s ease-in-out;
+  transition: all 0.25s cubic-bezier(0.46, 0.03, 0.52, 0.96),
+    background 0.3s ease-in-out;
+}

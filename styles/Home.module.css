@@ -1,5 +1,6 @@
 .container {
   padding: 0 2rem;
+  position: relative;
 }
 
 .main {
@@ -11,7 +12,30 @@
   justify-content: center;
   align-items: center;
 }
+.mainGrid{
+  margin-top: 80px;
+}
+.myMasonryGrid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: -30px; /* gutter size offset */
+  width: auto;
+}
+.myMasonryGrid_column {
+  padding-left: 18px; /* gutter size */
+  background-clip: padding-box;
+}
 
+/* Style your items */
+/* .myMasonryGrid_column > div { 
+  border-radius: 6px;
+  color: #ffffff;
+  opacity: .8;
+  padding: 26px;
+  /* background: #71008e; 
+  margin-bottom: 18px;
+} */
 .footer {
   display: flex;
   flex: 1;

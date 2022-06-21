@@ -1,0 +1,21 @@
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modalBg {
+  position: fixed;
+  padding: 1.5rem;
+  width: 50%;
+  height: 800px;
+  background-color: rgb(255, 255, 255);
+  -webkit-transition: all 0.25s cubic-bezier(0.46, 0.03, 0.52, 0.96),
+    background 0.3s ease-in-out;
+  transition: all 0.25s cubic-bezier(0.46, 0.03, 0.52, 0.96),
+    background 0.3s ease-in-out;
+  z-index: 10;
+}
