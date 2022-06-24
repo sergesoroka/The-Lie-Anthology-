@@ -1,8 +1,8 @@
 import React, {useState, useCallback, useRef } from 'react';
 import { FiDownload } from 'react-icons/fi';
 import { toPng } from 'html-to-image';
+
 import styles from "./Card.module.css";
-// FiDownload
 
 function Card({
   quote_id,
@@ -18,6 +18,7 @@ function Card({
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef(null);
+  
 
   const onButtonClick = useCallback(() => {
     if (ref.current === null) {
@@ -44,10 +45,10 @@ function Card({
       : evaluation == "Маніпуляція"
       ? styles.cardManipulation
       : evaluation == "Перебільшення"
-      ? styles.cardOverrated
+      ? styles.cardOverrated 
       : "";
   return (
-    <div ref={ref}  className={styles.card + " " + bgColor}>
+    <div ref={ref} className={styles.card + " " + bgColor}>
       <>
         <h2 className={styles.authorName}>
           {speakerName} <span className={styles.evaluation}>/ {evaluation}</span>
@@ -62,8 +63,7 @@ function Card({
           {topic2 ? <span className={styles.topic}>{topic2}</span> : null}
           <FiDownload className={styles.download} onClick={onButtonClick}/>
         </div>
-      </>
-     
+      </> 
     </div>
   );
 }

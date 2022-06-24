@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Header from "../components/Header/Header";
 import Card from "../components/Card/Card";
+import { useTagsContext, TagsContext } from '../context/tagsContect';
 import Masonry from "react-masonry-css";
 import styles from "../styles/Home.module.css";
 
@@ -14,13 +15,16 @@ const breakpointColumnsObj = {
 };
 
 export default function Home({ data }) {
+  const { getTags } = useTagsContext(TagsContext);
+  const tags = getTags()
+
   const cardRender = quotes.map((quote, i) => {
     const speakerName = Object.values(data.personsDict).map((item) => {
       if (item.person_id == quote.person_id) {
         return item.name;
       }
     });
-
+    if (tags.length === 0) {
     return (
       <Card
         key={i}
@@ -36,6 +40,23 @@ export default function Home({ data }) {
         speakerName={speakerName}
       />
     );
+    } else if (tags.includes(quote.topic1)) {
+      return (
+        <Card
+          key={i}
+          quote_id={quote.person_id}
+          person_id={quote.person_id}
+          evaluation={quote.evaluation}
+          quote={quote.quote}
+          quote_date={quote.quote_date}
+          comment={quote.comment}
+          source={quote.source}
+          topic1={quote.topic1}
+          topic2={quote.topic2}
+          speakerName={speakerName}
+        />
+      );
+    }
   });
   return (
     <div className={styles.container}>
