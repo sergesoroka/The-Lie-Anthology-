@@ -11,7 +11,7 @@ export const categoriesSlice = createSlice({
   name: "categories",
   initialState,
   reducers: {
-    addCategory: (state, action: PayloadAction<string>) => {
+    addCategory: (state: categoriesList, action: PayloadAction<string>) => {
       const currentIndex = state.categoriesArray.indexOf(action.payload);
       if (currentIndex === -1) {
         state.categoriesArray.push(action.payload);
