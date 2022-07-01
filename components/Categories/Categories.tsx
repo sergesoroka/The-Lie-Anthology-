@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addCategory } from "./../../store/categoriesSlice";
-import { categoriesList  } from './../../store/categoriesSlice'
+import { RootState } from './../../store/store'
 import styles from "./Categories.module.css";
 
 type CaregoryName = {
@@ -9,7 +9,7 @@ type CaregoryName = {
 };
 
 const Categories: FC = () => {
-  const categories = useSelector((state): categoriesList  => state.categories.categoriesArray);
+  const categories = useSelector((state: RootState)  => state.categories.categoriesArray);
   const dispatch = useDispatch();
 
   return (
