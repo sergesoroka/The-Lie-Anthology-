@@ -17,7 +17,6 @@ export const tagsSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
 export const { addTag } = tagsSlice.actions
 
 export default tagsSlice.reducer;

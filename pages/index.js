@@ -2,6 +2,7 @@ import Head from "next/head";
 import Header from "../components/Header/Header";
 import Card from "../components/Card/Card";
 import { useTagsContext, TagsContext } from '../context/tagsContect';
+import { useSelector } from 'react-redux'
 import Masonry from "react-masonry-css";
 import styles from "../styles/Home.module.css";
 
@@ -14,7 +15,9 @@ const breakpointColumnsObj = {
   500: 1,
 };
 
+
 export default function Home({ data }) {
+  const categoriesArray = useSelector((state) => state.categories.categoriesArray)
   const { getTags } = useTagsContext(TagsContext);
   const tags = getTags()
 
@@ -24,7 +27,7 @@ export default function Home({ data }) {
         return item.name;
       }
     });
-    if (tags.length === 0) {
+    if (tags.length === 0 && categoriesArray.length === 0 ) {
     return (
       <Card
         key={i}
@@ -40,7 +43,39 @@ export default function Home({ data }) {
         speakerName={speakerName}
       />
     );
+    } else if (categoriesArray.includes(quote.evaluation)) {
+      return (
+        <Card
+          key={i}
+          quote_id={quote.person_id}
+          person_id={quote.person_id}
+          evaluation={quote.evaluation}
+          quote={quote.quote}
+          quote_date={quote.quote_date}
+          comment={quote.comment}
+          source={quote.source}
+          topic1={quote.topic1}
+          topic2={quote.topic2}
+          speakerName={speakerName}
+        />
+      );
     } else if (tags.includes(quote.topic1)) {
+      return (
+        <Card
+          key={i}
+          quote_id={quote.person_id}
+          person_id={quote.person_id}
+          evaluation={quote.evaluation}
+          quote={quote.quote}
+          quote_date={quote.quote_date}
+          comment={quote.comment}
+          source={quote.source}
+          topic1={quote.topic1}
+          topic2={quote.topic2}
+          speakerName={speakerName}
+        />
+      );
+    } else if (categoriesArray.includes(quote.evaluation) && tags.includes(quote.topic1)) {
       return (
         <Card
           key={i}

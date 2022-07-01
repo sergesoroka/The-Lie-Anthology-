@@ -1,7 +1,7 @@
 import React, {useState, useCallback, useRef } from 'react';
 import { FiDownload } from 'react-icons/fi';
 import { toPng } from 'html-to-image';
-
+import { useTagsContext, TagsContext } from '../../context/tagsContect';
 import styles from "./Card.module.css";
 
 function Card({
@@ -18,7 +18,15 @@ function Card({
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef(null);
-  
+  const { addTag } = useTagsContext(TagsContext);
+
+  const addFirstTag = (topic1) => {
+    addTag(topic1)
+  }
+
+  const addSecondTag = (topic2) => {
+    addTag(topic2)
+  }
 
   const onButtonClick = useCallback(() => {
     if (ref.current === null) {
@@ -59,8 +67,8 @@ function Card({
         </p>
         {isOpen && <div  className={styles.commentBg}><div className={styles.comment} dangerouslySetInnerHTML={{__html: comment}}></div></div>}
         <div className={styles.iconsWrap}>
-          <span className={styles.topic}>{topic1}</span>
-          {topic2 ? <span className={styles.topic}>{topic2}</span> : null}
+          <span className={styles.topic} onClick={addFirstTag}>{topic1}</span>
+          {topic2 ? <span className={styles.topic} onClick={addSecondTag}>{topic2}</span> : null}
           <FiDownload className={styles.download} onClick={onButtonClick}/>
         </div>
       </> 

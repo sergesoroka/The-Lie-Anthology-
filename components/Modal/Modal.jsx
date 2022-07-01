@@ -3,8 +3,10 @@ import { motion } from "framer-motion";
 
 import styles from "./Modal.module.css";
 
-import { uniqueTags } from "../../util/uniqueTags";
+
 import TagsList from '../Tags/TagsList'
+import Categories from '../Categories/Categories'
+
 
 const variants = {
   hidden: { opacity: 0 },
@@ -38,6 +40,7 @@ export default function Modal({ showModal, setShowModal }) {
     <motion.div initial="hidden" animate="visible" variants={variants}>
       {showModal && (
         <div className={styles.modalBg}>
+          <Categories />
           <TagsList />
         </div>
       )}

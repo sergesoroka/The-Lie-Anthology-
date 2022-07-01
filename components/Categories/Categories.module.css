@@ -1,0 +1,32 @@
+.catWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem 0 0;
+}
+
+.catItem {
+  list-style: none;
+  cursor: pointer;
+  font-weight: 200;
+}
+
+
+.catItemActiveTrue {
+  color: rgb(45, 108, 0);
+  font-weight: 700;
+}
+
+.catItemActiveNotTrue {
+  color: rgb(194, 0, 58);
+  font-weight: 700;
+}
+
+.catItemActiveManipulation {
+  color: rgb(101, 0, 155);
+  font-weight: 700;
+}
+
+.catItemActiveOverrated {
+  color: rgba(204, 133, 0);
+  font-weight: 700;
+}
